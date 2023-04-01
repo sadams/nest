@@ -5,7 +5,7 @@ import { AppModule } from './app.module';
 
 async function bootstrap() {
   // this (express) version WILL work by passing 'res' into the gql module options `context` function
-  // const app = await NestFactory.create<NestFastifyApplication>(AppModule);
+  // const app = await NestFactory.create(AppModule);
 
   // this (fastify) version will NOT pass 'res' or 'reply' onto the gql module options `context` function
   const app = await NestFactory.create<NestFastifyApplication>(AppModule, new FastifyAdapter());

@@ -24,7 +24,7 @@
     "@nestjs/apollo": "11.0.4",
     "@nestjs/common": "9.3.12",
     "@nestjs/core": "9.3.12",
-    "@nestjs/graphql": "11.0.0",
+    "@nestjs/graphql": "^11.0.4",
     "@nestjs/platform-express": "9.3.12",
     "@nestjs/platform-fastify": "9.3.12",
     "class-transformer": "0.5.1",
