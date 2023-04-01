@@ -1,9 +1,15 @@
 import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
+import { FastifyAdapter, NestFastifyApplication } from '@nestjs/platform-fastify';
 import { AppModule } from './app.module';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  // this (express) version WILL work by passing 'res' into the gql module options `context` function
+  // const app = await NestFactory.create<NestFastifyApplication>(AppModule);
+
+  // this (fastify) version will NOT pass 'res' or 'reply' onto the gql module options `context` function
+  const app = await NestFactory.create<NestFastifyApplication>(AppModule, new FastifyAdapter());
+
   app.useGlobalPipes(new ValidationPipe());
 
   await app.listen(3000);
