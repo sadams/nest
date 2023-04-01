@@ -13,6 +13,10 @@ import { RecipesModule } from './recipes/recipes.module';
       autoSchemaFile: 'schema.gql',
       transformSchema: schema => upperDirectiveTransformer(schema, 'upper'),
       installSubscriptionHandlers: true,
+      context: ({res, req, reply}) => {
+        console.log({typeofResDotHeader: reply?.header})
+        return {res, req};
+      },
       buildSchemaOptions: {
         directives: [
           new GraphQLDirective({
