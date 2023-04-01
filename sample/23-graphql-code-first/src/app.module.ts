@@ -14,7 +14,7 @@ import { RecipesModule } from './recipes/recipes.module';
       transformSchema: schema => upperDirectiveTransformer(schema, 'upper'),
       installSubscriptionHandlers: true,
       context: ({res, req, reply}) => {
-        console.log({typeofResDotHeader: reply?.header})
+        console.log({typeofReply: typeof reply, typeofRes: typeof res})
         return {res, req};
       },
       buildSchemaOptions: {
